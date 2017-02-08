@@ -18,6 +18,8 @@ if [ -z "$1" ]; then
     exit 0
 fi
 
+#updatedb for locates
+updatedb
 #We set our functions up here
 #Checks for updates
 checkupdate () {
@@ -31,7 +33,7 @@ fi
 }
 #this function simply runs NSE scripts against a target.  $1 is the target $2 is the ip $3 is what to grep for in the log.
 nserun () {
-if grep -i "$3" wrap_dir/wrapper_nmap --quiet; then
+if grep -i '\b$3\b' wrap_dir/wrapper_nmap --quiet; then
     echo "[*] Port $2 open, $2?"
     read -p "Run a full $1 NSE vuln scan? [y/N]" CONTINUE;
     if [ "$CONTINUE" == "Y" ] || [ "$CONTINUE" == "y" ]; then
@@ -65,7 +67,7 @@ fi
 }
 #similar to above but doesnt only search for vuln nses (SSH for example has 3 nses but none are for vulns)
 nseruntwo () {
-if grep -i "$3" wrap_dir/wrapper_nmap --quiet; then
+if grep -i '\b$3\b' wrap_dir/wrapper_nmap --quiet; then
     echo "[*] Port $2 open, $2?"
     read -p "Run a full $1 NSE vuln scan? [y/N]" CONTINUE;
     if [ "$CONTINUE" == "Y" ] || [ "$CONTINUE" == "y" ]; then
@@ -108,7 +110,7 @@ fi
 
 #Set some basic defaul settings/vars
 ABSOLUTE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")
-VERSION=1.0.1
+VERSION=1.0.2
 HOST=$1
 DEFAULTOUT="-oN wrap_dir/wrapper_nmap"
 echo "" > wrap_dir/wrapper_packets
