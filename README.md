@@ -23,3 +23,6 @@ options:
 -v                              Set verbosity for debugging.
 
 --version                       Check current version level.
+
+#################################TODO#####################################################
+#####Add searchsploit capabilities to any NSE scripts that returns vuln#####
