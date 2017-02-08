@@ -24,5 +24,6 @@ options:
 
 --version                       Check current version level.
 
-###TODO
-###Add searchsploit capabilities to any NSE scripts that returns vuln
+##TODO
+###*Add searchsploit capabilities to any NSE scripts that returns vuln
+###*Proper bug checking and validation
