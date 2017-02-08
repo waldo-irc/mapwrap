@@ -3,17 +3,18 @@
 #First part checks to make sure we have a host or any variable given.  If not, help options are displayed.
 if [ -z "$1" ]; then
     echo "[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)"
-    echo "[*] Usage: ./wrap.sh <target> [options]"
+    echo "[*] Usage: $0 <target> [options]"
     echo "options:"
     echo "--help                          Show Brief Help"
-    echo "-p [args], --port [args]        Select port range - EX: ./wrap.sh 127.0.0.1 -p 0-65535"
+    echo "-p [args], --port [args]        Select port range - EX: $0 127.0.0.1 -p 0-65535"
     echo "-f [args], --full [args]        All port scan (cannot be used with -f)"
     echo "--sweep                         Runs a ping sweep on a target, will ignore all other arguments."
-    echo "-mon [args], --monitor [args]   TCPDump your nmap scan.  Must choose an interface - EX:./wrap.sh 127.0.0.1 -mon eth0"
-    echo "-c=[args], --custom=[args]      Additional custom commands - EX: ./wrap.sh 127.0.0.1 -f --custom='-oA filename -T5'"
-    echo "--nverb [args]                  Sets Nmap verbosity level - EX: ./wrap.sh 127.0.0.1 -vv"
+    echo "-mon [args], --monitor [args]   TCPDump your nmap scan.  Must choose an interface - EX: $0 127.0.0.1 -mon eth0"
+    echo "-c=[args], --custom=[args]      Additional custom commands - EX: $0 127.0.0.1 -f --custom='-oA filename -T5'"
+    echo "--nverb [args]                  Sets Nmap verbosity level - EX: $0 127.0.0.1 -vv"
     echo "-v                              Set verbosity for debugging."
     echo "--version                       Check current version level."
+    echo "--update                        Update mapwrap."
     exit 0
 fi
 
@@ -25,7 +26,6 @@ if [ "$git" == "$VERSION" ]; then
      echo "[*] Current version is latest."
 else
      echo "[****] Update Available"
-     echo "[****] Version update from $VERSION to $git"
      update="1"
 fi
 }
@@ -108,7 +108,7 @@ fi
 
 #Set some basic defaul settings/vars
 ABSOLUTE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")
-VERSION=1.0.1
+VERSION=1.0.0
 HOST=$1
 DEFAULTOUT="-oN wrap_dir/wrapper_nmap"
 echo "" > wrap_dir/wrapper_packets
@@ -141,12 +141,11 @@ for arg in "$@"; do
         exit 0
         ;;
         --update)
-        echo "[*] wsmb Version $VERSION"
-        echo "[*] Updating WSMB"
+        echo "[*] $0 Version $VERSION"
+        echo "[*] Updating $0"
         checkupdate
         echo "$git Git Version"
         echo "$VERSION Installed Version"
-        echo "Absolute Path is: $ABSOLUTE_PATH"
         if [ "$update" != "1" ]; then
             exit 0;
         else
@@ -190,17 +189,18 @@ for arg in "$@"; do
         ;;
         -h|--help)
         echo "[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)"
-        echo "[*] Usage: ./wrap.sh <target> [options]"
+        echo "[*] Usage: $0 <target> [options]"
         echo "options:"
         echo "--help                          Show Brief Help"
-        echo "-p [args], --port [args]        Select port range - EX: ./wrap.sh 127.0.0.1 -p 0-65535"
+        echo "-p [args], --port [args]        Select port range - EX: $0 127.0.0.1 -p 0-65535"
         echo "-f [args], --full [args]        All port scan (cannot be used with -f)"
         echo "--sweep                         Runs a ping sweep on a target, will ignore all other arguments."
-        echo "-mon [args], --monitor [args]   TCPDump your nmap scan.  Must choose an interface - EX:./wrap.sh 127.0.0.1 -mon eth0"
-        echo "-c=[args], --custom=[args]      Additional custom commands - EX: ./wrap.sh 127.0.0.1 -f --custom='-oA filename -T5'"
-        echo "--nverb [args]                  Sets Nmap verbosity level - EX: ./wrap.sh 127.0.0.1 -vv"
+        echo "-mon [args], --monitor [args]   TCPDump your nmap scan.  Must choose an interface - EX: $0 127.0.0.1 -mon eth0"
+        echo "-c=[args], --custom=[args]      Additional custom commands - EX: $0 127.0.0.1 -f --custom='-oA filename -T5'"
+        echo "--nverb [args]                  Sets Nmap verbosity level - EX: $0 127.0.0.1 -vv"
         echo "-v                              Set verbosity for debugging."
         echo "--version                       Check current version level."
+        echo "--update                        Update mapwrap."
         exit 0
         ;;
     esac
@@ -276,17 +276,18 @@ case $key in
     ;;
     -*)
     echo "[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)"
-    echo "[*] Usage: ./wrap.sh <target> [options]"
+    echo "[*] Usage: $0 <target> [options]"
     echo "options:"
     echo "--help                          Show Brief Help"
-    echo "-p [args], --port [args]        Select port range - EX: ./wrap.sh 127.0.0.1 -p 0-65535"
+    echo "-p [args], --port [args]        Select port range - EX: $0 127.0.0.1 -p 0-65535"
     echo "-f [args], --full [args]        All port scan (cannot be used with -f)"
     echo "--sweep                         Runs a ping sweep on a target, will ignore all other arguments."
-    echo "-mon [args], --monitor [args]   TCPDump your nmap scan.  Must choose an interface - EX:./wrap.sh 127.0.0.1 -mon eth0"
-    echo "-c=[args], --custom=[args]      Additional custom commands - EX: ./wrap.sh 127.0.0.1 -f --custom='-oA filename -T5'"
-    echo "--nverb [args]                  Sets Nmap verbosity level - EX: ./wrap.sh 127.0.0.1 -vv"
+    echo "-mon [args], --monitor [args]   TCPDump your nmap scan.  Must choose an interface - EX: $0 127.0.0.1 -mon eth0"
+    echo "-c=[args], --custom=[args]      Additional custom commands - EX: $0 127.0.0.1 -f --custom='-oA filename -T5'"
+    echo "--nverb [args]                  Sets Nmap verbosity level - EX: $0 127.0.0.1 -vv"
     echo "-v                              Set verbosity for debugging."
     echo "--version                       Check current version level."
+    echo "--update                        Update mapwrap."
     exit 0
     #Everything else that isn't an argument, throw help and exit 0
     ;;
@@ -358,6 +359,3 @@ fi
 
 #END
 echo "[!!!!] Done, check 'wrap_dir' directory for NSE scan results."
-
-#################################TODO#####################################################
-#####Add searchsploit capabilities to any NSE scripts that returns vuln
