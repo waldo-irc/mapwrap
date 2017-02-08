@@ -20,7 +20,7 @@ fi
 #We set our functions up here
 #Checks for updates
 checkupdate () {
-git=$(curl --silent https://github.com/waldo-irc/SMBScan/blob/master/wsmb | grep 'VERSION=' | cut -d">" -f2 | cut -d"<" -f1 | cut -d"=" -f 2)
+git=$(curl --silent https://github.com/waldo-irc/mapwrap/blob/master/wrap.sh | grep 'VERSION=' | cut -d">" -f2 | cut -d"<" -f1 | cut -d"=" -f 2)
 if [ "$git" == "$VERSION" ]; then
      echo "[*] Current version is latest."
 else
@@ -153,12 +153,12 @@ for arg in "$@"; do
             echo "[*] Needs an update!"
             read -p "[*] Update script? Y/n: " CONDITION;
             if [ "$CONDITION" == "Y" ] || [ "$CONDITION" == "y" ] || [ -z "$CONDITION" ]; then
-                git clone https://github.com/waldo-irc/SMBScan.git
+                git clone https://github.com/waldo-irc/mapwrap.git
                 echo "[*] Installing to $ABSOLUTE_PATH"
-                mv SMBScan/wsmb $ABSOLUTE_PATH
+                mv mapwrap/wrap.sh $ABSOLUTE_PATH
                 echo "[*] Cleaning up"
                 wait
-                rm -R SMBScan
+                rm -R mapwrap
                 echo "[*] Installed Version updated to $git"
             else
                 echo "[*] Exiting, not updating from $VERSION"
