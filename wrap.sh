@@ -271,7 +271,7 @@ case $key in
     shift # past argument
     ;;
     #Have to re-state these or itll throw errors for the help
-    -f|--full|-h|--help|-c|--custom|-v|--sweep)
+    -f|--full|-h|--help|-c=*|--custom=*|-v|--sweep)
     :
     ;;
     -*)
