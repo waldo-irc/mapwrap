@@ -2,7 +2,7 @@
 
 #First part checks to make sure we have a host or any variable given.  If not, help options are displayed.
 if [ -z "$1" ]; then
-    echo "[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)"
+    echo "[*] Nmap wrapper (outputs as -oN wrap_dir/wrapper_nmap by default)"
     echo "[*] Usage: $0 <target> [options]"
     echo "options:"
     echo "--help                          Show Brief Help"
@@ -188,7 +188,7 @@ for arg in "$@"; do
         CUSTOM="${arg#*=}"
         ;;
         -h|--help)
-        echo "[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)"
+        echo "[*] Nmap wrapper (outputs as -oN wrap_dir/wrapper_nmap by default)"
         echo "[*] Usage: $0 <target> [options]"
         echo "options:"
         echo "--help                          Show Brief Help"
@@ -275,7 +275,7 @@ case $key in
     :
     ;;
     -*)
-    echo "[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)"
+    echo "[*] Nmap wrapper (outputs as -oN wrap_dir/wrapper_nmap by default)"
     echo "[*] Usage: $0 <target> [options]"
     echo "options:"
     echo "--help                          Show Brief Help"
