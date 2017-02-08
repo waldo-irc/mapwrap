@@ -19,6 +19,7 @@ if [ -z "$1" ]; then
 fi
 
 #updatedb for locates
+echo "Updating DB for locate use.  May take a while, will be faster in the future after first run."
 updatedb
 #We set our functions up here
 #Checks for updates
