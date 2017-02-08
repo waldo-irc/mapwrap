@@ -24,6 +24,8 @@ options:
 
 --version                       Check current version level.
 
+--update                        Update mapwrap.
+
 ##TODO
 ###*Add searchsploit capabilities to any NSE scripts that returns vuln
 ###*Proper bug checking and validation
