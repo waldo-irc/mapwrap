@@ -1,6 +1,6 @@
 # mapwrap  - Current Version 1.0.0
 
-[*] Nmap wrapper (outputs as -oN wrapper_nmap by default)
+[*] Nmap wrapper (outputs as -oN wrap_dir/wrapper_nmap by default)
 
 [*] Usage: ./wrap.sh <target> [options]
 
