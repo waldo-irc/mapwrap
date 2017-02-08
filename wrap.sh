@@ -108,7 +108,7 @@ fi
 
 #Set some basic defaul settings/vars
 ABSOLUTE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")
-VERSION=1.0.0
+VERSION=1.0.1
 HOST=$1
 DEFAULTOUT="-oN wrap_dir/wrapper_nmap"
 echo "" > wrap_dir/wrapper_packets
