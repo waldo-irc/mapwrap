@@ -1,4 +1,4 @@
-# mapwrap  - Current Version 1.0.0
+# mapwrap  - Current Version 1.0.1
 
 [*] Nmap wrapper (outputs as -oN wrap_dir/wrapper_nmap by default)
 
